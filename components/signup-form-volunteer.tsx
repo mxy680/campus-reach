@@ -70,7 +70,21 @@ export function SignupForm({
             className="w-full flex items-center justify-center gap-2"
             variant="outline"
             disabled={!isReady}
-            onClick={() => signIn("google")}
+            onClick={() => {
+              try {
+                // Persist pre-signup survey so it can be read after OAuth redirect
+                if (typeof window !== "undefined") {
+                  localStorage.setItem(
+                    "cr_signup_survey",
+                    JSON.stringify({ heardAbout, motivation, role: "volunteer" })
+                  )
+                }
+              } catch {
+                // Non-blocking: if storage fails, still proceed with sign-in
+              }
+              // Kick off Auth.js (NextAuth) Google OAuth and send user to dashboard afterwards
+              signIn("google", { callbackUrl: "/dashboard" })
+            }}
           >
             <FcGoogle className="mr-1 h-5 w-5" />
             Connect with Google

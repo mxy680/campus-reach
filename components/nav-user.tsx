@@ -7,6 +7,7 @@ import {
   IconNotification,
   IconUserCircle,
 } from "@tabler/icons-react"
+import { signOut } from "next-auth/react"
 
 import {
   Avatar,
@@ -98,7 +99,13 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem
+              onSelect={(e) => {
+                // prevent default to avoid focusing issues in some browsers
+                e.preventDefault()
+                signOut({ callbackUrl: "/" })
+              }}
+            >
               <IconLogout />
               Log out
             </DropdownMenuItem>

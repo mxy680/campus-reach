@@ -25,7 +25,7 @@ export default function LoginPage() {
             <div className="bg-muted relative hidden lg:block">
                 <ModeToggle className="absolute top-2 right-2 z-10" />
                 <Image
-                    src="/image.png"
+                    src="/food-shelter.png"
                     alt="Image"
                     className="absolute inset-0 h-full w-full object-cover"
                     width={1000}
