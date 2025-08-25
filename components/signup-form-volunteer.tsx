@@ -71,19 +71,9 @@ export function SignupForm({
             variant="outline"
             disabled={!isReady}
             onClick={() => {
-              try {
-                // Persist pre-signup survey so it can be read after OAuth redirect
-                if (typeof window !== "undefined") {
-                  localStorage.setItem(
-                    "cr_signup_survey",
-                    JSON.stringify({ heardAbout, motivation, role: "volunteer" })
-                  )
-                }
-              } catch {
-                // Non-blocking: if storage fails, still proceed with sign-in
-              }
-              // Kick off Auth.js (NextAuth) Google OAuth and send user to dashboard afterwards
-              signIn("google", { callbackUrl: "/dashboard" })
+              signIn("google", {
+                callbackUrl: `/onboarding?role=volunteer&heardAbout=${encodeURIComponent(heardAbout)}&motivation=${encodeURIComponent(motivation)}`
+              })
             }}
           >
             <FcGoogle className="mr-1 h-5 w-5" />
