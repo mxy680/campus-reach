@@ -70,10 +70,19 @@ export function SignupForm({
             className="w-full flex items-center justify-center gap-2"
             variant="outline"
             disabled={!isReady}
-            onClick={() => {
-              signIn("google", {
-                callbackUrl: `/onboarding?role=volunteer&heardAbout=${encodeURIComponent(heardAbout)}&motivation=${encodeURIComponent(motivation)}`
-              })
+            onClick={async () => {
+              try {
+                await fetch("/api/onboarding/preset", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ heardAbout, motivation }),
+                });
+              } catch {
+                // Non-blocking: proceed to sign-in regardless
+              }
+              await signIn("google", {
+                callbackUrl: "/api/onboarding/complete?role=volunteer",
+              });
             }}
           >
             <FcGoogle className="mr-1 h-5 w-5" />

@@ -4,11 +4,15 @@ import * as React from "react"
 import {
   IconDashboard,
   IconDatabase,
+  IconGift,
   IconFileDescription,
   IconFileWord,
   IconHelp,
   IconInnerShadowTop,
   IconListDetails,
+  IconClockHour4,
+  IconMedal,
+  IconUser,
   IconReport,
   IconSearch,
   IconSettings,
@@ -36,17 +40,32 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Home",
       url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Browse opportunities",
+      title: "Opportunities",
       url: "/opportunities",
       icon: IconSearch,
     },
     {
-      title: "My events",
+      title: "Rewards",
+      url: "/rewards",
+      icon: IconGift,
+    },
+    {
+      title: "Hours Log",
+      url: "/hours",
+      icon: IconClockHour4,
+    },
+    {
+      title: "Badges",
+      url: "/badges",
+      icon: IconMedal,
+    },
+    {
+      title: "My Events",
       url: "/my-events",
       icon: IconListDetails,
     },
@@ -56,8 +75,13 @@ const data = {
       icon: IconDatabase,
     },
     {
-      title: "Messages",
-      url: "/messages",
+      title: "Profile",
+      url: "/profile",
+      icon: IconUser,
+    },
+    {
+      title: "Community",
+      url: "/community",
       icon: IconFileDescription,
     },
   ],
@@ -69,19 +93,23 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Find opportunities",
+          title: "Find Opportunities",
           url: "/opportunities",
         },
         {
-          title: "My upcoming events",
+          title: "My Upcoming Events",
           url: "/my-events",
         },
         {
-          title: "Saved items",
+          title: "Rewards & Badges",
+          url: "/rewards",
+        },
+        {
+          title: "Saved Items",
           url: "/saved",
         },
         {
-          title: "Contact support",
+          title: "Help Center",
           url: "/help",
         },
       ],
@@ -98,11 +126,7 @@ const data = {
       url: "/help",
       icon: IconHelp,
     },
-    {
-      title: "Search opportunities",
-      url: "/opportunities",
-      icon: IconSearch,
-    },
+    // Optional: surface logout here when available
   ],
   documents: [
     {

@@ -13,6 +13,10 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
+  IconPlus,
+  IconChecklist,
+  IconQrcode,
+  IconBuildingCommunity,
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -37,14 +41,24 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Home",
       url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Manage Events",
-      url: "/events",
+      title: "Opportunities",
+      url: "/opportunities",
       icon: IconListDetails,
+    },
+    {
+      title: "Create Opportunity",
+      url: "/opportunities/new",
+      icon: IconPlus,
+    },
+    {
+      title: "Approvals",
+      url: "/approvals",
+      icon: IconChecklist,
     },
     {
       title: "Volunteers",
@@ -52,14 +66,24 @@ const data = {
       icon: IconUsers,
     },
     {
-      title: "Analytics",
-      url: "/analytics",
-      icon: IconReport,
+      title: "Attendance / QR",
+      url: "/attendance",
+      icon: IconQrcode,
     },
     {
       title: "Messages",
       url: "/messages",
       icon: IconFileDescription,
+    },
+    {
+      title: "Analytics",
+      url: "/analytics",
+      icon: IconReport,
+    },
+    {
+      title: "Organization Profile",
+      url: "/org",
+      icon: IconBuildingCommunity,
     },
   ],
   navClouds: [
@@ -70,16 +94,16 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Create New Event",
-          url: "/events/new",
+          title: "Create Opportunity",
+          url: "/opportunities/new",
         },
         {
-          title: "View All Volunteers",
+          title: "Volunteer Roster",
           url: "/volunteers",
         },
         {
-          title: "Attendance Tracker",
-          url: "/events/attendance",
+          title: "Attendance / QR",
+          url: "/attendance",
         },
         {
           title: "Send Announcement",
@@ -101,14 +125,14 @@ const data = {
     },
     {
       title: "Search",
-      url: "/volunteers",
+      url: "/search",
       icon: IconSearch,
     },
   ],
   documents: [
     {
-      name: "Event Resources",
-      url: "/resources",
+      name: "Posting Guidelines",
+      url: "/resources/guidelines",
       icon: IconDatabase,
     },
     {
@@ -136,7 +160,7 @@ export function OrgSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">CampusReach Admin</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

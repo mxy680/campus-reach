@@ -1,21 +1,13 @@
 import { OrgSidebar } from "@/components/org-sidebar"
-import { UserSidebar } from "@/components/user-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import { getUserRole, type Role } from "@/lib/role"
-
 export default async function Page() {
-  const role: Role = await getUserRole()
-
-  const sidebar = role === "org" ? (
-    <OrgSidebar variant="inset" />
-  ) : (
-    <UserSidebar variant="inset" />
-  )
+  // Platform uses only the organization sidebar now
+  const sidebar = <OrgSidebar variant="inset" />
 
   return (
     <SidebarProvider
